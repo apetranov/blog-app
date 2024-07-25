@@ -5,7 +5,7 @@ import Header from "@/components/Header"
 
 function AllBlogs() {
   return (
-    <div className="flex justify-center max-w-7xl items-center">
+    <div >
         <SignedIn>
             <SignedInHeader/>
         </SignedIn>
@@ -14,7 +14,7 @@ function AllBlogs() {
             <Header />
         </SignedOut>
 
-    <div className="flex p-5 flex-col justify-center items-center ">
+    <div className="flex p-5 flex-col justify-center items-center max-w-7">
         <h1 className="text-3xl md:text-5xl font-bold">All Blogs</h1>
     </div>
     </div>
