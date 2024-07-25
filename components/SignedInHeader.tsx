@@ -17,7 +17,9 @@ function SignedInHeader() {
             <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                 <Link href="/allBlogs">All Blogs</Link>
             </Button>
-            <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">Create Blog</Button>
+            <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+                <Link href="/dashboard/createBlog">Create Blog</Link>
+            </Button>
             <UserButton />
         </div>
         
