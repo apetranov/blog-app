@@ -29,6 +29,7 @@ function AllBlogs() {
     };
 
     return (
+        
         <div>
             <SignedIn>
                 <SignedInHeader />
@@ -37,7 +38,8 @@ function AllBlogs() {
             <SignedOut>
                 <Header />
             </SignedOut>
-
+            
+            <div className="flex flex-col justify-center items-center">
             <div className="flex p-5 flex-col justify-center items-center max-w-7xl">
                 <h1 className="text-3xl md:text-5xl font-bold">All Blogs</h1>
             </div>
@@ -58,6 +60,10 @@ function AllBlogs() {
                     );
                 })}
             </div>
+            </div>
+            
+
+            
         </div>
     );
 }
