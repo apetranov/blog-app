@@ -5,7 +5,7 @@ import Header from "@/components/Header"
 
 function AllBlogs() {
   return (
-    <div>
+    <div className="flex justify-center items-center">
         <SignedIn>
             <SignedInHeader/>
         </SignedIn>
