@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "./ui/button"
 import Link from "next/link"
 import { MenuIcon } from "lucide-react"
@@ -10,6 +12,7 @@ import {
     SheetTitle,
     SheetTrigger,
   } from "@/components/ui/sheet"
+import { useState } from "react"
   
 
 function Header() {
@@ -69,6 +72,12 @@ function Header() {
         })
     
       }
+
+      const [isOpen, setIsOpen] = useState(false);
+
+    const toggleSheet = () => {
+        setIsOpen(!isOpen);
+    };
   return (
     <div className="flex p-5 space-x-5 items-center flex-row justify-between">
         <div className="font-semibold text-xl md:text-3xl">
@@ -102,7 +111,7 @@ function Header() {
             <MenuIcon onClick={changeVisMenu} id="menu" className="text-indigo-600" />
             <X onClick={changeVisClose} id="close" className="hidden" />
         </div> */}
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className="text-indigo-600 md:hidden"><MenuIcon/></SheetTrigger>
         <SheetContent>
             <SheetHeader>
@@ -111,7 +120,7 @@ function Header() {
             </SheetDescription>
             </SheetHeader>
             <div className="flex flex-col space-y-5">
-            <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+            <Button onClick={toggleSheet} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                 <Link href="/allBlogs">All Blogs</Link>
             </Button>
             <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">

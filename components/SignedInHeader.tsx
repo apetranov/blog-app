@@ -13,6 +13,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
+import { useState } from "react"
   
 
 // import React, { useState, useEffect } from 'react';
@@ -76,6 +77,11 @@ function SignedInHeader() {
     })
 
   }
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSheet = () => {
+    setIsOpen(!isOpen);
+  };
 
   
     
@@ -115,7 +121,7 @@ function SignedInHeader() {
             <div className="md:hidden">
             <UserButton />
             </div>
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className="md:hidden text-indigo-600"><MenuIcon/></SheetTrigger>
         <SheetContent>
             <SheetHeader>
@@ -124,13 +130,13 @@ function SignedInHeader() {
             </SheetDescription>
             </SheetHeader>
             <div className="flex flex-col space-y-5">
-            <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+            <Button onClick={toggleSheet} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                 <Link href="/dashboard">My Blogs</Link>
             </Button>
-            <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+            <Button onClick={toggleSheet} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                 <Link href="/allBlogs">All Blogs</Link>
             </Button>
-            <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+            <Button onClick={toggleSheet} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                 <Link href="/dashboard/createBlog">Create Blog</Link>
             </Button>
             
