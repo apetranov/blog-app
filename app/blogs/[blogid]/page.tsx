@@ -16,6 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useUser } from '@clerk/nextjs';
 import { toast } from 'react-toastify';
 import { AwaitedReactNode, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from "react";
+import MarkupRenderer from '@/components/MarkupRenderer';
 
 
 function Blog( { params, }: 
@@ -74,7 +75,7 @@ function Blog( { params, }:
                 <h2 className="font text-xl mb-10 sm:text-2xl">{blog.description}</h2>
                 <h2 className="mb-10">by <span className="font-semibold">{blog.author}</span></h2>
                 <div className="mb-10">
-                    {blog.content}
+                    <MarkupRenderer markupString={blog.content as string} />
                 </div>
 
                 <SignedIn>
