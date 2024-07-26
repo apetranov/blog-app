@@ -51,7 +51,7 @@ function CreateBlog() {
         <div className="flex p-5 flex-col justify-center items-center">
             <div className='flex flex-col justify-center items-center text-center'>
             <h1 className='text-2xl md:text-5xl'><span className='text-indigo-600'>PRO TIP</span></h1>
-            <p>use <a className='text-indigo-600 underline' href="https://www.markdownguide.org/basic-syntax/">markdown</a> syntax in the Content section to style the content of your blog and add images</p>
+            <p>use <a className='text-indigo-600 underline' href="https://www.markdownguide.org/basic-syntax/">markdown</a> syntax and/or <a className='text-indigo-600 underline' href="https://www.w3schools.com/html/">HTML</a> in the Content section to style the content of your blog and add images</p>
         
             </div>
             <form onSubmit={handleSubmit} className="space-y-4 w-full">
