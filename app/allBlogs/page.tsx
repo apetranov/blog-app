@@ -44,18 +44,18 @@ function AllBlogs() {
                 <h1 className="text-3xl md:text-5xl font-bold">All Blogs</h1>
             </div>
 
-            <div className="p-5">
+            <div className="p-5 flex flex-col justify-center items-center">
                 {blogs?.docs.map((doc) => {
                     const blogData = doc.data(); // Ensure to cast or type the data as needed
                     return (
                         <div
                             key={doc.id}
                             onClick={() => handleBlogClick(doc.id)}
-                            className="p-5 flex rounded-lg shadow-lg flex-col justify-center items-center cursor-pointer hover:bg-gray-100 transition-colors"
+                            className="p-5 flex mb-5 rounded-lg shadow-lg flex-col justify-center items-center cursor-pointer hover:bg-gray-100 transition-colors"
                         >
-                            <h2 className="text-2xl text-indigo-600 font-semibold">{blogData.title}</h2>
-                            <p>{blogData.description}</p>
-                            <p>written by <i>{blogData.author}</i></p>
+                            <h2 className="text-2xl text-center text-indigo-600 font-semibold">{blogData.title}</h2>
+                            <p className="text-center">{blogData.description}</p>
+                            <p className="text-center">written by <i>{blogData.author}</i></p>
                         </div>
                     );
                 })}

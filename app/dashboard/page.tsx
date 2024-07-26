@@ -33,16 +33,16 @@ function Dashboard() {
                 <h1 className="text-3xl md:text-5xl font-bold">Your Blogs</h1>
             </div>
 
-            <div className="p-5">
+            <div className="p-5 flex flex-col justify-center items-center ">
                 {filteredBlogs?.length ? (
                     filteredBlogs.map((blog) => {
                         const blogData = blog.data();
                         return (
                             <Link href={`/blogs/${encodeURIComponent(blog.id)}`} key={blog.id}>
-                                <div className="p-5 flex rounded-lg shadow-lg flex-col justify-center items-center cursor-pointer hover:bg-gray-100 transition-colors">
-                                    <h2 className="text-2xl text-indigo-600 font-semibold">{blogData.title}</h2>
-                                    <p>{blogData.description}</p>
-                                    <p>written by <i>{blogData.author}</i></p>
+                                <div className="p-5 mb-5 flex rounded-lg shadow-lg flex-col justify-center items-center cursor-pointer hover:bg-gray-100 transition-colors">
+                                    <h2 className="text-2xl text-center text-indigo-600 font-semibold">{blogData.title}</h2>
+                                    <p className="text-center">{blogData.description}</p>
+                                    <p className="text-center">written by <i>{blogData.author}</i></p>
                                 </div>
                             </Link>
                         );
