@@ -22,7 +22,7 @@ type CustomRenderers = {
     li: (node: any) => <li className="mb-2 pl-4 list-disc">{domToReact(node.children)}</li>,
     ul: (node: any) => <ul className="list-inside list-disc">{domToReact(node.children)}</ul>,
     ol: (node: any) => <ol className="list-inside list-decimal">{domToReact(node.children)}</ol>,
-    img: (node: any) => <img className='max-w-sm' {...node.attribs} />
+    img: (node: any) => <img className='max-w-sm mx-auto' {...node.attribs} />
     // Add more custom renderers as needed
   };
 
