@@ -1,3 +1,3 @@
-#A fullstack blog application built with NextJs
+# A fullstack blog application built with NextJs
 
-#Lve Link: https://blogverse-gilt.vercel.app
+# Lve Link: https://blogverse-gilt.vercel.app
