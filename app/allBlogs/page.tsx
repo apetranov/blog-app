@@ -62,7 +62,7 @@ function AllBlogs() {
                 {blogs?.docs.map((doc) => {
                     const blogData = doc.data(); // Ensure to cast or type the data as needed
                     return (
-                        <div>
+                        <div key={doc.id}>
                             <div
                             key={doc.id}
                             onClick={() => handleBlogClick(doc.id)}

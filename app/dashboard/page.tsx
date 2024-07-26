@@ -51,7 +51,7 @@ function Dashboard() {
                     filteredBlogs.map((blog) => {
                         const blogData = blog.data();
                         return (
-                            <div>
+                            <div key={blog.id}>
                                  <Link href={`/blogs/${encodeURIComponent(blog.id)}`} key={blog.id}>
                                 <div className="p-5 mb-5 flex rounded-lg shadow-lg flex-col justify-center items-center cursor-pointer hover:bg-gray-100 transition-colors">
                                     <h2 className="text-2xl text-center text-indigo-600 font-semibold">{blogData.title}</h2>
