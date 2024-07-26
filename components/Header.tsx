@@ -103,7 +103,7 @@ function Header() {
             <X onClick={changeVisClose} id="close" className="hidden" />
         </div> */}
         <Sheet>
-        <SheetTrigger className="text-indigo-600"><MenuIcon/></SheetTrigger>
+        <SheetTrigger className="text-indigo-600 md:hidden"><MenuIcon/></SheetTrigger>
         <SheetContent>
             <SheetHeader>
             <SheetTitle className="text-indigo-600">Menu</SheetTitle>
