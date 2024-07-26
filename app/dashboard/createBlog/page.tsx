@@ -48,7 +48,7 @@ function CreateBlog() {
 
   return (
     <div>
-        <div className="flex p-5 flex-col justify-center items-center max-w-7xl">
+        <div className="flex p-5 flex-col justify-center items-center">
         <form onSubmit={handleSubmit} className="space-y-4 w-full">
                     <div>
                         <h2>Title</h2>
