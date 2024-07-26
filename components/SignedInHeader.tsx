@@ -40,7 +40,32 @@ function SignedInHeader() {
             // setVis('')
         }
     }
-  } 
+  }
+
+  const closeMenuCreate = () => {
+    const mobileMenu = document.getElementById('mobileMenu')
+    const close = document.getElementById('close')
+    const menu = document.getElementById('menu');
+
+    if(!mobileMenu?.classList.contains('hidden')) {
+        mobileMenu?.classList.add('hidden')
+        close?.classList.add('hidden')
+        menu?.classList.remove('hidden')
+    }
+
+    menu?.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        mobileMenu?.classList.remove('hidden');
+        close?.classList.remove('hidden')
+    })
+
+    close?.addEventListener('click', () => {
+        mobileMenu?.classList.add('hidden')
+        menu?.classList.remove('hidden')
+        close.classList.add('hidden')
+    })
+
+  }
     
   return (
 
@@ -49,7 +74,7 @@ function SignedInHeader() {
             Blog<span className="text-indigo-600">Verse</span>
         </div>
 
-        <div id="mobileMenu" className="top-[12%] md:hidden  duration-500 right-[-100%] p-12 bg-white h-full w-3/4 fixed z-20">
+        <div id="mobileMenu" className="top-[12%] md:hidden duration-500 right-[-100%] p-12 bg-white h-full w-3/4 fixed z-20">
             <div className="flex flex-col space-y-2">
                 <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                     <Link href="/dashboard">My Blogs</Link>
@@ -57,7 +82,7 @@ function SignedInHeader() {
                 <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                     <Link href="/allBlogs">All Blogs</Link>
                 </Button>
-                <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+                <Button id='create' onClick={closeMenuCreate} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                     <Link href="/dashboard/createBlog">Create Blog</Link>
                 </Button>
             </div>
