@@ -8,7 +8,7 @@ import { SignedOut } from "@clerk/nextjs";
 import Header from "@/components/Header";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { firestore } from "@/firebase/clientApp";
-import { arrayUnion, collection, doc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, collection, deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { usePathname, useParams } from 'next/navigation'; // Import from next/navigation
 import DashboardSkeleton from "@/components/dashboardSkeleton";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,8 @@ import { useUser } from '@clerk/nextjs';
 import { toast } from 'react-toastify';
 import { AwaitedReactNode, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from "react";
 import MarkupRenderer from '@/components/MarkupRenderer';
+import useRouter  from "next/router";
+
 
 
 function Blog( { params, }: 
@@ -27,6 +29,18 @@ function Blog( { params, }:
     const [blogs, blogsLoading, blogsError] = useCollection(
         collection(firestore, "blogs")
     );
+
+    const deleteBlogById = async (id: string) => {
+        try {
+            const blogRef = doc(firestore, "blogs", id);
+            await deleteDoc(blogRef);
+            toast.success('Blog deleted successfully');
+            window.location.href = '/allBlogs';
+        } catch (error) {
+          console.error('Error deleting blog: ', error);
+        }
+      };
+
     const { user } = useUser();
     const blog = blogs?.docs.find(doc => doc.id === params.blogid)?.data();
     const blog2 = blogs?.docs.find(doc => doc.id === params.blogid)
@@ -69,7 +83,7 @@ function Blog( { params, }:
         <SignedOut>
             <Header />
         </SignedOut>
-        
+            {user?.username === blog.author ? <div className="justify-center flex items-center"><Button onClick={() => deleteBlogById(params.blogid)} className="bg-red-500 text-white ">Delete Blog</Button></div> : '' }
             <div className="flex p-10 text-center flex-col justify-center items-center" key={blog.id}>
                 <h1 className="font-bold text-2xl mb-10 sm:text-5xl">{blog.title}</h1>
                 <h2 className="font text-xl mb-10 sm:text-2xl">{blog.description}</h2>
@@ -96,6 +110,7 @@ function Blog( { params, }:
                     <p><strong>{comment.author}</strong>: {comment.content}</p>
                     <p><em>Added on {new Date(comment.timestamp.seconds * 1000).toLocaleString()}</em></p>
                     </div>
+                    
                 ))}
             </div>
 
