@@ -34,7 +34,32 @@ function Header() {
                 // setVis('')
             }
         }
-      } 
+      }
+
+      const closeMenuCreate = () => {
+        const mobileMenu = document.getElementById('mobileMenu')
+        const close = document.getElementById('close')
+        const menu = document.getElementById('menu');
+    
+        if(!mobileMenu?.classList.contains('hidden')) {
+            mobileMenu?.classList.add('hidden')
+            close?.classList.add('hidden')
+            menu?.classList.remove('hidden')
+        }
+    
+        menu?.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            mobileMenu?.classList.remove('hidden');
+            close?.classList.remove('hidden')
+        })
+    
+        close?.addEventListener('click', () => {
+            mobileMenu?.classList.add('hidden')
+            menu?.classList.remove('hidden')
+            close.classList.add('hidden')
+        })
+    
+      }
   return (
     <div className="flex p-5 space-x-5 items-center flex-row justify-between">
         <div className="font-semibold text-xl md:text-3xl">
@@ -43,7 +68,7 @@ function Header() {
         
         <div id="mobileMenu" className="top-[12%] md:hidden  duration-500 right-[-100%] p-12 bg-white h-full w-3/4 fixed z-20">
             <div className="flex flex-col space-y-2">
-                <Button asChild className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+                <Button onClick={closeMenuCreate} asChild className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                     <Link href="/allBlogs">All Blogs</Link>
                 </Button>
                 <Button asChild className="bg-white hover:text-white text-black border-2 rounded-lg border-black">

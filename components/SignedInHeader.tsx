@@ -66,6 +66,8 @@ function SignedInHeader() {
     })
 
   }
+
+  
     
   return (
 
@@ -76,10 +78,10 @@ function SignedInHeader() {
 
         <div id="mobileMenu" className="top-[12%] md:hidden duration-500 right-[-100%] p-12 bg-white h-full w-3/4 fixed z-20">
             <div className="flex flex-col space-y-2">
-                <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+                <Button onClick={closeMenuCreate} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                     <Link href="/dashboard">My Blogs</Link>
                 </Button>
-                <Button className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
+                <Button onClick={closeMenuCreate} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
                     <Link href="/allBlogs">All Blogs</Link>
                 </Button>
                 <Button id='create' onClick={closeMenuCreate} className="bg-white hover:text-white text-black border-2 rounded-lg border-black">
